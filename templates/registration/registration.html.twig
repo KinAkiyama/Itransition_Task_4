@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello RegistrationController!{% endblock %}
+
+{% block main_cont %}
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-md-6">
+
+                <h1 class="h3 mb-3 fw-normal text-center">Account creation</h1>
+
+                {{ form_errors(registrationForm) }}
+
+                {{ form_start(registrationForm) }}
+                <div class="form-group">
+                    <div class="text-light-emphasis fw-medium my-1">{{ form_label(registrationForm.name) }}</div>
+                    {{ form_widget(registrationForm.name, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-group">
+                     <div class="text-light-emphasis fw-medium my-1">{{ form_label(registrationForm.email) }}</div>
+                    {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-group">
+                     <div class="text-light-emphasis fw-medium my-1">{{ form_label(registrationForm.password, 'Password') }}</div>
+                    {{ form_widget(registrationForm.password, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <button type="submit" class="btn btn-primary w-100 my-3">Register</button>
+                <div class="d-flex justify-content-center aling-items-center">
+                    <span class="me-1">Already have an account?</span> <a href="{{ path('app_login') }}"> Log in!</a>
+                </div>
+                {{ form_end(registrationForm) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
