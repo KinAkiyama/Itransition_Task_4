@@ -20,7 +20,7 @@ COPY ./ /var/www
 WORKDIR /var/www
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-RUN composer install --no-dev --optimize-autoloader
+RUN composer install --no-dev --optimize-autoloader --no-interaction --no-scripts
 RUN composer require symfony/maker-bundle
 
 COPY nginx.conf /etc/nginx/nginx.conf
